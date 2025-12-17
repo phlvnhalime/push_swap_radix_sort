@@ -6,7 +6,7 @@
 /*   By: hpehliva <hpehliva@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 01:30:38 by hpehliva          #+#    #+#             */
-/*   Updated: 2025/12/17 19:51:27 by hpehliva         ###   ########.fr       */
+/*   Updated: 2025/12/17 19:53:18 by hpehliva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,13 +85,10 @@ void radix_short(t_stack **a, t_stack **b)
           ra(a, false);
         bits_array[0]++;
       }
+      while(*b)
+      {
+        pa(a,b, false);
+      }
+      bits_array[1]++;
     }
-
-    while(*b)
-    {
-      pa(a,b, false);
-    }
-    bits_array[1]++;
-
-
 }

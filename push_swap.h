@@ -29,6 +29,26 @@ void rrr(t_stack **a, t_stack **b, bool check);
 void sa(t_stack **a, bool check);
 void sb(t_stack **b, bool check);
 void ss(t_stack **a, t_stack **b, bool check);
+void ra(t_stack **a, bool check);
+void rb(t_stack **b, bool check);
+void rr(t_stack **a, t_stack **b, bool check);
+
+// Radix short algorithm
+void radix_short(t_stack **a, t_stack **b);
+void assign_indicators(t_stack **a);
+t_stack *find_smallest_element(t_stack *a);
+
+// Parse and initialize and error handling
+bool parse_and_init(t_stack **stack_a, int ac, char **av);
+int invalid_entries(char *str);
+bool is_ordered(t_stack *stack);
+int check_dub(t_stack *a, int size);
+void add_to_stack(t_stack **stack, int size);
+void handle_error();
+
+// Utils functions
+long ft_atol(char *str);
+void free_stack(t_stack **stack);
 
 
 

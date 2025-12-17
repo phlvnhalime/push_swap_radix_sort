@@ -6,7 +6,7 @@
 /*   By: hpehliva <hpehliva@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 01:00:00 by hpehliva          #+#    #+#             */
-/*   Updated: 2025/12/15 01:17:11 by hpehliva         ###   ########.fr       */
+/*   Updated: 2025/12/17 20:03:03 by hpehliva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,18 @@ int	count_nodes(t_stack *stack)
 		stack = stack->next;
 	}
 	return (count);
+}
+
+
+void free_stack(t_stack **stack)
+{
+	t_stack *temp;
+
+	while(*stack)
+	{
+		temp = (*stack)->next;
+		free(*stack);
+		*stack = temp;
+	}
+	*stack = NULL;
 }
