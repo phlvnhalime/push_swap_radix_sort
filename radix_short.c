@@ -6,7 +6,7 @@
 /*   By: hpehliva <hpehliva@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 01:30:38 by hpehliva          #+#    #+#             */
-/*   Updated: 2025/12/17 19:46:18 by hpehliva         ###   ########.fr       */
+/*   Updated: 2025/12/17 19:51:27 by hpehliva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,35 @@ void radix_short(t_stack **a, t_stack **b)
     t_stack *head_a;
     int max_size;
     int max_bits;
-    int **bits_array;
+    int bits_array[2];
 
   // order the numbers in the stack
     assign_indicators(a);
+
+    max_size = count_nodes(*a);
+    max_bits = 0;
+    while((max_size - 1) >> max_bits != 0)
+      max_bits++;
+    bits_array[1] = 0;
+    while(bits_array[1] < max_bits)
+    {
+      bits_array[0] = 0;
+      while(bits_array[0] < max_size)
+      {
+        head_a = *a;
+        if(((head_a->index >> bits_array[1]) & 1) == 1)
+          pb(b, a, false);
+        else
+          ra(a, false);
+        bits_array[0]++;
+      }
+    }
+
+    while(*b)
+    {
+      pa(a,b, false);
+    }
+    bits_array[1]++;
+
 
 }
