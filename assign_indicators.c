@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   radix_short.c                                      :+:      :+:    :+:   */
+/*   assign_indicators.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hpehliva <hpehliva@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 01:30:38 by hpehliva          #+#    #+#             */
-/*   Updated: 2025/12/17 20:20:31 by hpehliva         ###   ########.fr       */
+/*   Updated: 2025/12/18 18:14:40 by hpehliva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack *find_smallest_element(t_stack *a)
+static t_stack *find_smallest_element(t_stack *a)
 {
   t_stack *small;
   t_stack *curr;
@@ -31,7 +31,23 @@ t_stack *find_smallest_element(t_stack *a)
   return (small);
 
 }
+/*
+  For example stack A has 6 elements.
+  Stack a = [3,1,6,2,5,4]
 
+  Stack b = []
+  indicators = [2,0,5,1,4,3]
+    - First ordered element with starting 0 till length of the stack.
+    - index = [1,2,3,4,5,6]
+  After assigning indicators, stack a will be like this:
+  3 -> 2i
+  1 -> 0i
+  6 -> 5i
+  2 -> 1i
+  5 -> 4i
+  4 -> 3i
+  They will compare with each other to mark_lis_keep
+*/
 void assign_indicators(t_stack **a)
 {
     t_stack *curr;
@@ -39,7 +55,7 @@ void assign_indicators(t_stack **a)
     int i;
     int len;
 
-    len = count_nodes(*a);
+    len = elements_in_stack(*a);
     if(!*a)
       return ;
     curr = *a;
@@ -56,39 +72,4 @@ void assign_indicators(t_stack **a)
         small->index = i;
       i++;
     } 
-}
-
-void radix_short(t_stack **a, t_stack **b)
-{
-    t_stack *head_a;
-    int max_size;
-    int max_bits;
-    int bits_array[2];
-
-  // order the numbers in the stack
-    assign_indicators(a);
-
-    max_size = count_nodes(*a);
-    max_bits = 0;
-    while((max_size - 1) >> max_bits != 0)
-      max_bits++;
-    bits_array[1] = 0;
-    while(bits_array[1] < max_bits)
-    {
-      bits_array[0] = 0;
-      while(bits_array[0] < max_size)
-      {
-        head_a = *a;
-        if(((head_a->index >> bits_array[1]) & 1) == 1)
-          ra(a, false);
-        else
-          pb(b, a, false);
-        bits_array[0]++;
-      }
-      while(*b)
-      {
-        pa(a,b, false);
-      }
-      bits_array[1]++;
-    }
 }

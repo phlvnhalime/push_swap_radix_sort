@@ -12,13 +12,18 @@ typedef struct s_stack
 {
     int value;
     int index;
+	bool keep;
+	int pos;
+	int target_pos;
+	int cost_a;
+	int cost_b;
     struct s_stack *next;
     struct s_stack *before;
 } t_stack;
 
-// Utils functions
+// Algorithm utils functions
 t_stack	*get_tail_node(t_stack *stack);
-int		count_nodes(t_stack *stack);
+int		elements_in_stack(t_stack *stack);
 
 // Push operators
 void pa(t_stack **a, t_stack **b, bool check);
@@ -34,10 +39,9 @@ void rb(t_stack **b, bool check);
 void rr(t_stack **a, t_stack **b, bool check);
 
 // Radix short algorithm
-void radix_short(t_stack **a, t_stack **b);
 void assign_indicators(t_stack **a);
-t_stack *find_smallest_element(t_stack *a);
 void small_sort(t_stack **a, t_stack **b);
+void sorting_advanced(t_stack **a, t_stack **b);
 
 // Parse and initialize and error handling
 bool parse_and_init(t_stack **stack_a, int ac, char **av);

@@ -6,7 +6,7 @@
 /*   By: hpehliva <hpehliva@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 01:26:17 by hpehliva          #+#    #+#             */
-/*   Updated: 2025/12/17 21:41:24 by hpehliva         ###   ########.fr       */
+/*   Updated: 2025/12/17 22:08:42 by hpehliva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,11 @@ void add_to_stack(t_stack **stack, int value)
         exit(1);
     new_node->value = value;
     new_node->index = -1;
+	new_node->keep = false;
+	new_node->pos = 0;
+	new_node->target_pos = 0;
+	new_node->cost_a = 0;
+	new_node->cost_b = 0;
     new_node->before = NULL;
     new_node->next = NULL;
     if (!*stack)
@@ -192,7 +197,7 @@ int main(int ac, char **av)
     if (size <= 5)
         small_sort(&stack_a, &stack_b);
     else
-        radix_short(&stack_a, &stack_b);
+        sorting_advanced(&stack_a, &stack_b);
 
 
     // free the stack

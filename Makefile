@@ -6,7 +6,7 @@
 #    By: hpehliva <hpehliva@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/17 20:03:47 by hpehliva          #+#    #+#              #
-#    Updated: 2025/12/17 21:38:42 by hpehliva         ###   ########.fr        #
+#    Updated: 2025/12/18 15:00:03 by hpehliva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,9 @@ LIBFT_DIR = Libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
 SRCS = main.c \
-		radix_short.c \
+		assign_indicators.c \
 		small_sort.c \
+		sorting_advanced.c \
 		utils.c \
 		push_operators.c \
 		swap_operators.c \

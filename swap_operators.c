@@ -6,7 +6,7 @@
 /*   By: hpehliva <hpehliva@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 00:56:47 by hpehliva          #+#    #+#             */
-/*   Updated: 2025/12/15 01:18:47 by hpehliva         ###   ########.fr       */
+/*   Updated: 2025/12/18 14:58:01 by hpehliva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,12 @@ void sb(t_stack **b, bool check)
     swap(b);
     if(!check)
         write(1, "sb\n", 3);
+}
+
+void ss(t_stack **a, t_stack **b, bool check)
+{
+	swap(a);
+	swap(b);
+	if (!check)
+		write(1, "ss\n", 3);
 }
