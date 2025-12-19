@@ -6,7 +6,7 @@
 /*   By: hpehliva <hpehliva@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 00:56:47 by hpehliva          #+#    #+#             */
-/*   Updated: 2025/12/18 14:58:01 by hpehliva         ###   ########.fr       */
+/*   Updated: 2025/12/19 09:28:10 by hpehliva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void swap(t_stack **stack)
 {
     int len;
 
-    len = count_nodes(*stack);
+    len = count_elements(*stack);
     if(!*stack || !stack || len == 1)
         return ;
     *stack = (*stack)->next;

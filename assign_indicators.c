@@ -6,7 +6,7 @@
 /*   By: hpehliva <hpehliva@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 01:30:38 by hpehliva          #+#    #+#             */
-/*   Updated: 2025/12/18 18:14:40 by hpehliva         ###   ########.fr       */
+/*   Updated: 2025/12/19 09:27:22 by hpehliva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void assign_indicators(t_stack **a)
     int i;
     int len;
 
-    len = elements_in_stack(*a);
+    len = count_elements(*a);
     if(!*a)
       return ;
     curr = *a;

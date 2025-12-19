@@ -23,7 +23,7 @@ typedef struct s_stack
 
 // Algorithm utils functions
 t_stack	*get_tail_node(t_stack *stack);
-int		elements_in_stack(t_stack *stack);
+int		count_elements(t_stack *stack);
 
 // Push operators
 void pa(t_stack **a, t_stack **b, bool check);

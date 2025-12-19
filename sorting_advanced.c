@@ -6,7 +6,7 @@
 /*   By: hpehliva <hpehliva@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 23:00:00 by hpehliva          #+#    #+#             */
-/*   Updated: 2025/12/18 18:22:24 by hpehliva         ###   ########.fr       */
+/*   Updated: 2025/12/19 09:28:02 by hpehliva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static void	mark_lis_keep(t_stack *a)
 	t_stack	**nodes;
 
 	clear_keep(a);
-	n = elements_in_stack(a);
+	n = count_elements(a);
 	if (n <= 0)
 		return ;
 	nodes = (t_stack **)malloc(sizeof(t_stack *) * n);
@@ -131,7 +131,7 @@ static void	zone_push_to_b(t_stack **a, t_stack **b)
 	int	median;
 	int	i;
 
-	size = count_nodes(*a);
+	size = count_elements(*a);
 	median = size / 3;
 	i = 0;
 	while (i < size)
@@ -177,7 +177,7 @@ static void	final_rotate_to_min(t_stack **a)
 	int	len;
 	int	pos;
 
-	len = count_nodes(*a);
+	len = count_elements(*a);
 	if (len <= 1)
 		return ;
 	pos = find_min_index_pos(*a);
@@ -236,8 +236,8 @@ static void	set_targets_and_costs(t_stack *a, t_stack *b)
 	int		len_b;
 	t_stack	*cur_b;
 
-	len_a = elements_in_stack(a);
-	len_b = elements_in_stack(b);
+	len_a = count_elements(a);
+	len_b = count_elements(b);
 	set_positions(a);
 	set_positions(b);
 	cur_b = b;
