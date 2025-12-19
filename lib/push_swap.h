@@ -6,17 +6,15 @@
 /*   By: hpehliva <hpehliva@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 15:10:23 by hpehliva          #+#    #+#             */
-/*   Updated: 2025/12/19 15:10:25 by hpehliva         ###   ########.fr       */
+/*   Updated: 2025/12/19 15:21:57 by hpehliva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <fcntl.h>
 # include <limits.h>
 # include <stdbool.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 

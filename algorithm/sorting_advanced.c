@@ -6,36 +6,19 @@
 /*   By: hpehliva <hpehliva@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 23:00:00 by hpehliva          #+#    #+#             */
-/*   Updated: 2025/12/19 15:14:02 by hpehliva         ###   ########.fr       */
+/*   Updated: 2025/12/19 15:30:24 by hpehliva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/push_swap.h"
 
-static void	target_conditions(t_stack *curr, int b_index)
+static void	target_conditions(t_stack *curr, int b_index, int *best_index,
+		int *best_pos)
 {
-	int	best_index;
-	int	best_pos;
-	int	min_index;
-	int	min_pos;
-
-	best_index = INT_MAX;
-	best_pos = 0;
-	min_index = INT_MAX;
-	min_pos = 0;
-	while (curr)
+	if (curr->index > b_index && curr->index < *best_index)
 	{
-		if (curr->index < min_index)
-		{
-			min_index = curr->index;
-			min_pos = curr->pos;
-		}
-		if (curr->index > b_index && curr->index < best_index)
-		{
-			best_index = curr->index;
-			best_pos = curr->pos;
-		}
-		curr = curr->next;
+		*best_index = curr->index;
+		*best_pos = curr->pos;
 	}
 }
 
@@ -46,16 +29,27 @@ static void	target_conditions(t_stack *curr, int b_index)
 */
 static int	get_target_pos(t_stack *a, int b_index)
 {
-	t_stack	*cur;
+	t_stack	*curr;
 	int		best_index;
 	int		best_pos;
 	int		min_pos;
+	int		min_index;
 
 	best_index = INT_MAX;
 	best_pos = 0;
+	min_index = INT_MAX;
 	min_pos = 0;
-	cur = a;
-	target_conditions(cur, b_index);
+	curr = a;
+	while (curr)
+	{
+		if (curr->index < min_index)
+		{
+			min_index = curr->index;
+			min_pos = curr->pos;
+		}
+		target_conditions(curr, b_index, &best_index, &best_pos);
+		curr = curr->next;
+	}
 	if (best_index != INT_MAX)
 		return (best_pos);
 	return (min_pos);
