@@ -43,9 +43,14 @@ void	rotate_b_cost(t_stack **b, int *cost);
 void	rotate_both_cost(t_stack **a, t_stack **b, int *ca, int *cb);
 
 // Algorithm assign stack functions
-void assign_indicators(t_stack **a);
+void	assign_indicators(t_stack **a);
 void	mark_lis_keep(t_stack *a);
 void	zone_push_to_b(t_stack **a, t_stack **b);
+
+// Algorithm assign stack utils functions
+void	set_best_len(int best_len[2], int n, int *lis_len);
+void	compute_lis(int *lis_len, int *lis_prev, t_stack **nodes, int n);
+void	added_notes_a(t_stack **nodes, t_stack *a);
 
 // Push operators
 void pa(t_stack **a, t_stack **b, bool check);
@@ -71,7 +76,7 @@ int invalid_entries(char *str);
 bool is_ordered(t_stack *stack);
 int check_dub(t_stack *a, int value);
 void add_to_stack(t_stack **stack, int value);
-void handle_error();
+void	handle_error(void);
 
 // Utils functions
 long ft_atol(const char *str);

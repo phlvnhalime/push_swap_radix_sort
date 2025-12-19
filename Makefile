@@ -20,6 +20,7 @@ SRCS = 	algorithm/algorithm_movements_utils.c \
 		algorithm/algorithm_movements.c \
 		algorithm/algorithm_utils.c \
 		algorithm/assign_stack.c \
+		algorithm/assign_stack_utils.c \
 		algorithm/small_sort.c \
 		algorithm/sorting_advanced.c \
 		operators/push_operators.c \
@@ -27,6 +28,9 @@ SRCS = 	algorithm/algorithm_movements_utils.c \
 		operators/reverse_operators.c \
 		operators/rotate_operators.c \
 		srcs/utils.c \
+		srcs/parsing.c \
+		srcs/parsing_utils.c \
+		srcs/parsing_utils_01.c \
 		main.c
 
 OBJS = $(SRCS:.c=.o)
