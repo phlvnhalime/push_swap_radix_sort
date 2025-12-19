@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   algorithm_movements_utils.c                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hpehliva <hpehliva@student.42heilbronn.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/19 11:13:12 by hpehliva          #+#    #+#             */
+/*   Updated: 2025/12/19 11:15:48 by hpehliva         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../lib/push_swap.h"
 
 void	rotate_a_cost(t_stack **a, int *cost)
@@ -13,6 +25,7 @@ void	rotate_a_cost(t_stack **a, int *cost)
 		(*cost)++;
 	}
 }
+
 
 void	rotate_b_cost(t_stack **b, int *cost)
 {
